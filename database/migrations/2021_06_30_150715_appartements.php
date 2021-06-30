@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Appartement extends Migration
+class Appartements extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Appartement extends Migration
      */
     public function up()
     {
-        Schema::create('appartement', function (Blueprint $table) {
+        Schema::create('appartements', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->string('nb_piece');

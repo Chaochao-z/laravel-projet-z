@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Vente extends Migration
+class Visites extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class Vente extends Migration
      */
     public function up()
     {
-        Schema::create('vente', function (Blueprint $table){
+        Schema::create('visites', function (Blueprint $table){
             $table->id();
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_appartement');
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_appartement')->references('id')->on('appartement');
-            $table->date('date_vente');
+            $table->date('date_visite');
+
+
         });
     }
 
