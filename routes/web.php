@@ -13,7 +13,7 @@ use App\Http\Controllers\FilmController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*//*
 Route::get('/film', [FilmController::class,'index'])->middleware(['auth']);
 
 Route::get('/filmshow/{id_film}', [FilmController::class,'filmshow'])->middleware(['auth']);
@@ -27,7 +27,7 @@ Route::get('/delete/{post_id}', [WallController::class,'delete'])->middleware(['
 Route::get('/update/{post_id}', [WallController::class,'update'])->middleware(['auth'])->name('update');
 
 Route::post('/update', [WallController::class,'store'])->middleware(['auth'])->name('store');
-
+*/
 Route::get('/test', function () {
     echo "test";
 })->middleware(['auth']);
