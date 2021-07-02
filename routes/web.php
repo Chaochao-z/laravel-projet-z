@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WallController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\AppartementController;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,10 +45,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/appartement',[AppartementController::class,'index'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
+
+
