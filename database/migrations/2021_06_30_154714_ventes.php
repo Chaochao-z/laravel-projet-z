@@ -18,7 +18,7 @@ class Ventes extends Migration
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_appartement');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_appartement')->references('id')->on('appartement');
+            $table->foreign('id_appartement')->references('id')->on('appartements');
             $table->date('date_vente');
         });
     }
