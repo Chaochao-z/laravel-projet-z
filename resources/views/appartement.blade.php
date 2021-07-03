@@ -29,7 +29,7 @@
                             {{ $appartement->id }}
                             {{ $appartement->type }}
                             {{ $appartement->nb_piece }}
-                            {{ $appartement->locatisation }}
+                            {{ $appartement->localisation }}
                             {{ $appartement->prix }}
                             {{ $appartement->surface }}
                             {{ $appartement->description }}
