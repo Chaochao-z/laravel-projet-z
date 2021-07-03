@@ -5,6 +5,7 @@ use App\Http\Controllers\WallController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\AppartementController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\VisiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +47,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth'])->name('dashboard');
+
+Route::get('/visite', [VisiteController::class,'index'])->middleware(['auth'])->name('visite');
 
 Route::get('/appartement',[AppartementController::class,'index'])->middleware(['auth']);
 
