@@ -50,6 +50,8 @@ Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['aut
 
 Route::get('/visite', [VisiteController::class,'index'])->middleware(['auth'])->name('visite');
 
+Route::get('/mesvisite', [VisiteController::class,'mesvisite'])->middleware(['auth'])->name('mesvisite');
+
 Route::get('/appartement',[AppartementController::class,'index'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
