@@ -12,7 +12,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
+                                <!-- <th scope="col">ID</th> -->
                                 <th scope="col">Type</th>
                                 <th scope ="col" > nb_piece</th>
                                 <th scope ="col">localisation</th>
@@ -27,8 +27,8 @@
                             </tr>
                         </thead>    
                         @foreach ($appartements as $appartement)
-                        <tr class="table-primary">
-                            <td>    {{ $appartement->id }} </td>
+                        <tr>
+                            <!-- <td>    {{ $appartement->id }} </td> -->
                             <td>    {{ $appartement->type }}</td>
                             <td>    {{ $appartement->nb_piece }}</td>
                             <td>    {{ $appartement->localisation }}</td>
@@ -39,6 +39,7 @@
                             <td>    {{ $appartement->date_publication }}</td>
                             <td>    {{ $appartement->date_location }}</td>
                             <td>    {{ $appartement->id_user }}</td>
+                            <td><a href="/visite/{{ $appartement->id}}">Regarder</a></td>
                         </tr>
                         @endforeach
                     </table>

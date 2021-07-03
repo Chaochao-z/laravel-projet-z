@@ -30,6 +30,9 @@ Route::get('/update/{post_id}', [WallController::class,'update'])->middleware(['
 
 Route::post('/update', [WallController::class,'store'])->middleware(['auth'])->name('store');
 */
+
+Route::get('/visite/{id}', [VisiteController::class,'appartement_show'])->middleware(['auth']);
+
 Route::get('/test', function () {
     echo "test";
 })->middleware(['auth']);

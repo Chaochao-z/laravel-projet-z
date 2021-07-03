@@ -16,5 +16,12 @@ class VisiteController extends Controller
             view('appartement',['appartements' => $appartements])
         );
     }
+    public function appartement_show(Request $request){
+        $id_appartement = $request->id;
+        $appartement = Appartement::find($id_appartement);
+        return(
+            view('single-appartement', ['appartement' => $appartement])
+        );
+    }
 }
 
