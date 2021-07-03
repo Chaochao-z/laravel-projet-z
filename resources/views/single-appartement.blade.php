@@ -10,8 +10,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <ul>
-                        
-
+                    {{ $appartement->type }}
+                    {{ $appartement->prix }}
+                    {{ $appartement->surface }}
+                    {{ $appartement->nb_piece }}
+                    {{ $appartement->description }}
+                    {{ $appartement->type }}
+                    {{ $appartement->type }}
+                    
                     </ul>
 
                     
