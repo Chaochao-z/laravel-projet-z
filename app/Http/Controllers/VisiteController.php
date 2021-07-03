@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 class VisiteController extends Controller
 {
     public function index(){
-        $appartements = DB::table('appartements')->where('status', 'location');
+        $appartements = DB::table('appartements')->where('type', 'appartement')->get();
+        return(
+            view('appartement',['appartements' => $appartements])
+        );
     }
 }
+
