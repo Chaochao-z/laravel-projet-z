@@ -18,7 +18,6 @@
                                 <th scope ="col">localisation</th>
                                 <th scope ="col">Prix</th>
                                 <th scope ="col">Surface</th>
-                                <th scope ="col">Description</th>
                                 <th scope ="col">Status</th>
                                 <th scope ="col">Date publication</th>
                                 <th scope ="col">Date location</th>
@@ -34,7 +33,6 @@
                             <td>    {{ $appartement->localisation }}</td>
                             <td>    {{ $appartement->prix }}</td>
                             <td>    {{ $appartement->surface }}</td>
-                            <td>    {{ $appartement->description }}</td>
                             <td>    {{ $appartement->status }}</td>
                             <td>    {{ $appartement->date_publication }}</td>
                             <td>    {{ $appartement->date_location }}</td>
