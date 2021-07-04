@@ -38,23 +38,20 @@
                                 <td>{{ $appartement->surface }}</td>
                                 <td>{{ $appartement->date_publication }}</td>
                             </tr>
+                        </table>
 
 
-
-
-
-                        {{ $appartement->type }}
-                        {{ $appartement->prix }}
-                        {{ $appartement->surface }}
-                        {{ $appartement->nb_piece }}
-                        {{ $appartement->description }}
-                        {{ $appartement->type }}
-                        {{ $appartement->type }}
                     </div>
-                    
+                    <h1 style="text-align:center;margin-bottom:20px;"> Description </h1>
+                    <p> {{ $appartement->description }}</p>
+                    <div>
+                        <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
+
+                        <iframe src="{{ $appartement->localisation }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
+
+                    </div>
                 </div>
                     
-                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8926.714626305667!2d2.4473402749630204!3d48.83899815918653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67ca1be18b1bb%3A0x8b17f88425397615!2sEvasion%20Verte!5e0!3m2!1sfr!2sfr!4v1625419559112!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
             </div>
         </div>
     </div>
