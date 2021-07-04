@@ -22,8 +22,8 @@ class Appartements extends Migration
             $table->integer('surface');
             $table->longText('description');
             $table->string('status');
-            $table->date('date_publication');
-            $table->date('date_location')->nullable();
+            $table->datetime('date_publication')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->datetime('date_location')->default(DB::raw('CURRENT_TIMESTAMP'))->nullable();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('users');
         });
