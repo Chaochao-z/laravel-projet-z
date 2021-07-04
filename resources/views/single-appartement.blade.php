@@ -18,7 +18,17 @@
                         @endif
                         Lot N° {{ $appartement->id }} </h1>
                     </div>
-
+                    <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
+                    <div class="slideshow-container">
+                        @foreach ($images as $image)
+                            <div class="mySlides fade">
+                               <img src="{{ asset($image->image_url) }}" alt="job image" style="width:100%; height:500px;">
+                            </div>
+                        @endforeach
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    
                     <div class = "tableau-info">
                         <table class="table table-hover">
                             <thead>
@@ -33,9 +43,9 @@
                             </thead>
                             <tr>
                                 <td>{{ $appartement->type }}</td>
-                                <td>{{ $appartement->nb_piece }}</td>
-                                <td>{{ $appartement->prix }}</td>
-                                <td>{{ $appartement->surface }}</td>
+                                <td>T{{ $appartement->nb_piece }}</td>
+                                <td>{{ $appartement->prix }}€</td>
+                                <td>{{ $appartement->surface }}m²</td>
                                 <td>{{ $appartement->date_publication }}</td>
                             </tr>
                         </table>

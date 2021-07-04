@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appartement;
 
-use App\Models\Images;
+use App\Models\Image;
 
 use Illuminate\Support\Facades\DB;
 
@@ -20,12 +20,12 @@ class VisiteController extends Controller
     }
     public function appartement_show(Request $request){
         $id_appartement = $request->id;
+        $img_appartement = DB::table('images')->where('id_appartement', $id_appartement)->get();
         $appartement = Appartement::find($id_appartement);
-        $img_appartement = Images::find($id_appartement);
         return(
             view('single-appartement', [
-                'appartement' => $appartement ,
-                'images' => $img_appartement
+                'images' => $img_appartement,
+                'appartement' => $appartement
                 ])
         );
     }
