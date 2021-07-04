@@ -46,3 +46,8 @@ nav li a:not([href]){
 	max-width: 1170px;
 	margin: auto;
 }
+
+.centerboridehi{
+	text-align: center;
+	color:red;
+}
