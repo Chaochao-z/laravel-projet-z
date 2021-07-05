@@ -9,12 +9,12 @@
 
 /* Hide the images by default */
 .mySlides {
-  display: none;
+  display: block;
 }
 
 /* Next & previous buttons */
 .prev, .next {
-
+  text-decoration: none;
   position: absolute;
   top: 50%;
   width: auto;
@@ -32,6 +32,10 @@
 /* Position the "next button" to the right */
 .next {
   right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 0;
   border-radius: 3px 0 0 3px;
 }
 
@@ -79,17 +83,21 @@
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  /* -webkit-animation-duration: 1.5s; */
   animation-name: fade;
-  animation-duration: 1.5s;
+  /* animation-duration: 1.5s; */
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
+  from {opacity: .9}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4}
+  from {opacity: .9}
   to {opacity: 1}
+}
+
+.fade:not(.show) {
+  opacity: 1;
 }
