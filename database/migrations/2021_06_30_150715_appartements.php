@@ -17,7 +17,9 @@ class Appartements extends Migration
             $table->id();
             $table->string('type');
             $table->string('nb_piece');
-            $table->string('localisation');
+            $table->longText('localisation');
+            $table->string('adresse');
+            $table->string('etage');
             $table->integer('prix');
             $table->integer('surface');
             $table->longText('description');

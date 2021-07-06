@@ -19,8 +19,6 @@
                                 <th scope ="col">Surface</th>
                                 <th scope ="col">Status</th>
                                 <th scope ="col">Date publication</th>
-                                <th scope ="col">Date location</th>
-                                <th scope ="col">ID user</th>
                                 <th scope ="col" >Action</th>
                             </tr>
                         </thead>    
@@ -33,8 +31,6 @@
                             <td>    {{ $appartement->surface }}</td>
                             <td>    {{ $appartement->status }}</td>
                             <td>    {{ $appartement->date_publication }}</td>
-                            <td>    {{ $appartement->date_location }}</td>
-                            <td>    {{ $appartement->id_user }}</td>
                             <td><a href="/visite/{{ $appartement->id}}">Regarder</a></td>
                         </tr>
                         @endforeach

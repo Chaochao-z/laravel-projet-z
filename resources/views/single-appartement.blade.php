@@ -12,7 +12,11 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="centerboridehi">
                         <h1 style="text-align:center;margin-bottom:40px;">
-                        
+                        @if($appartement->type =="appartement")
+                            Appartement
+                        @else
+                            Maison
+                        @endif
                         Lot N° {{ $appartement->id }} </h1>
                     </div>
                     
@@ -43,8 +47,6 @@
                                     <th scope ="col">Prix</th>
                                     <th scope ="col">Surface</th>
                                     <th scope ="col">Date publication</th>
-                                    <th scope ="col">Localisation</th>
-                                    <th scope ="col">Localisation</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -53,8 +55,6 @@
                                 <td>{{ $appartement->prix }}€</td>
                                 <td>{{ $appartement->surface }}m²</td>
                                 <td>{{ $appartement->date_publication }}</td>
-                                <td>{{ $appartement->localisation }}</td>
-                                <td>{{ $appartement->localisation }}</td>
                             </tr>
                         </table>
 
@@ -65,7 +65,7 @@
                     <div>
                         <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
 
-                        <!-- <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe> -->
+                        <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
             
                     </div>
                 </div>
