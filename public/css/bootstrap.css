@@ -63,6 +63,21 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.bouton-visite{
+  background-color: #5FD0E3;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.bouton-visite a{
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+  color:white;
+}
+
+
 hr {
   margin: 1rem 0;
   color: inherit;

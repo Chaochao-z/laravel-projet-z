@@ -29,5 +29,12 @@ class VisiteController extends Controller
                 ])
         );
     }
+
+    public function rdv(Request $request){
+        $id_appartement = $request->id;
+        return(
+            view('rdv-visite',['$id' => $id_appartement])
+        );
+    }
 }
 

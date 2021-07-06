@@ -68,6 +68,8 @@
                         <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
             
                     </div>
+                    <button type="button" class="bouton-visite" name="bouton-visite"><a href="/visite/{{ $appartement->id}}/rdv">Choisir Date de visite</a></button>
+
                 </div>
                     
             </div>
