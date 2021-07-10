@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Appartement;
 
+use Auth;
+
 use App\Models\Image;
+
+use App\Models\Visite;
 
 use Illuminate\Support\Facades\DB;
 
@@ -33,8 +37,24 @@ class VisiteController extends Controller
     public function rdv(Request $request){
         $id_appartement = $request->id;
         return(
-            view('rdv-visite',['$id' => $id_appartement])
+            view('rdv-visite',['id' => $id_appartement])
         );
+    }
+
+    public function rdv_enregistrer(Request $request){
+        $visite = $request->date_rdv;
+        $id_appartement = $request->id_appartement;
+        $id = Auth::user()->id;
+        $rdv = Visite::create([
+            'id_user' => $id,
+            'id_appartement' => $id_appartement,
+            'date_visite' => $visite,
+        ]);
+        $rdv->save();
+        return (
+            view('rdv-enregistrer',['date' => $visite])
+        );
+
     }
 }
 
