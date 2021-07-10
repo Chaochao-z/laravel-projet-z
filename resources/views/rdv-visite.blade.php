@@ -17,7 +17,7 @@
                             <label>Numéro de lot</label>
                             <input type="text" value = 'Lot : {{ $id }}' disabled="disabled"><br>
                             <input type="number" value = '{{ $id }}' name="id_appartement" hidden>
-                            <label>Choisir un date de visite</label>
+                            <label>Choisir une date de visite</label>
                             <input type ="date" name="date_rdv" id="date-rdv" required>
                         <button type="submit">Envoyer</button>
                     </div>    

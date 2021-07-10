@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1>Rdv enregistrer</h1>
-                    <p>Un mail de confirmation vous serez envoyé dans les minutes qui suive</p>
+                    <p>Un mail de confirmation vous serez envoyé dans les minutes qui suivent</p>
                     <p>Votre date de RDV est le {{ $date }} . </p>
                 </div>
             </div>
