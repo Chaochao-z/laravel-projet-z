@@ -12,4 +12,8 @@ class AppartementController extends Controller
         $appartements = Appartement::paginate(50);
         return view('appartement',['appartement' => $appartements]);
     }
+
+    public function addappartement(){
+        return view('addappartement',[]);
+    }
 }
