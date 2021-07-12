@@ -24,7 +24,6 @@ class AppartementController extends Controller
         $appartements->description = $request->description;
         $appartements->status = $request->status;
         $appartements->save();
-        return view('addappartement',['addappartement' => $appartements]);
         return redirect('appartement')->with('status', "Ajoute de l&#39;appartement");
     }
 }
