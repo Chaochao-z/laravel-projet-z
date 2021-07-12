@@ -19,5 +19,6 @@ class AppartementController extends Controller
         $appartements->user_id = Auth::id();
         $appartements->save();
         return view('addappartement',['addappartement' => $appartements]);
+        return redirect('appartement')->with('status', "Ajoute de l&#39;appartement");
     }
 }
