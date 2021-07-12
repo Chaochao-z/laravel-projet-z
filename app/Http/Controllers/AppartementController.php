@@ -14,6 +14,10 @@ class AppartementController extends Controller
     }
 
     public function addappartement(){
-        return view('addappartement',[]);
+        $appartements = new Appartement;
+        $appartements->content = $request->content;
+        $appartements->user_id = Auth::id();
+        $appartements->save();
+        return view('addappartement',['addappartement' => $appartements]);
     }
 }
