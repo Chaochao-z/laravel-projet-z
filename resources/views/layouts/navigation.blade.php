@@ -28,9 +28,10 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('addappartement')" :active="request()->routeIs('addappartement')">
-                        {{ __('Ajout appartement') }}
+                        {{ __('Ajouter un appartement') }}
                     </x-nav-link>
                 </div>
+               
             </div>
 
             <!-- Settings Dropdown -->

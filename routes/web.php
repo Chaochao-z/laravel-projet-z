@@ -59,9 +59,9 @@ Route::get('/visite', [VisiteController::class,'index'])->middleware(['auth'])->
 
 Route::get('/mesvisite', [VisiteController::class,'mesvisite'])->middleware(['auth'])->name('mesvisite');
 
-Route::get('/appartement',[AppartementController::class,'index'])->middleware(['auth']);
+Route::get('/appartement',[AppartementController::class,'index'])->middleware(['auth'])->name('appartement');
 
-Route::get('/addappartement', [AppartementController::class,'addappartement'])->middleware(['auth']);
+Route::get('/addappartement', [AppartementController::class,'create'])->middleware(['auth'])->name('addappartement');
 
 
 require __DIR__.'/auth.php';

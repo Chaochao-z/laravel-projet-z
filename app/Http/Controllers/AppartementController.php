@@ -13,6 +13,10 @@ class AppartementController extends Controller
         return view('appartement',['appartement' => $appartements]);
     }
 
+    public function create(){
+        return view('addappartement');
+    }
+
     public function addappartement(Request $request){
         $appartements = new Appartement;
         $appartements->type = $request->type;
