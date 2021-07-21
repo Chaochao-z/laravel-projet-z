@@ -49,4 +49,38 @@ class AppartementController extends Controller
         return view('addappartement-succes');
     }
 
+    public function edit(Request $request){
+        $id_appartement = $request->id;
+        $appartement = Appartement::find($id_appartement);
+        return view('single-appartement-edit',['appartement' => $appartement]);
+
+    }
+
+    public function update(Request $request){
+        $id = $request->id;
+        $appartement = Appartement::find($id);
+        $appartement->type = $request->type;
+        $appartement->etage = $request->etage;
+        $appartement->nb_piece = $request->nb_piece;
+        $appartement->status = $request->status;
+        if (isset($request->surface)){
+            $appartement->surface = $request->surface;
+        }
+        if (isset($request->adresse)){
+            $appartement->adresse = $request->adresse;
+        }
+        if (isset($request->localisation)){
+            $appartement->localisation = $request->localisation;
+        }
+        if (isset($request->description)){
+            $appartement->description = $request->description;
+        }
+        if (isset($request->prix)){
+            $appartement->prix = $request->prix;
+        }
+       
+        $appartement->save();
+        return view('single-appartement-edit-success',['id' => $id]);
+    }
+
 }

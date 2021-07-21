@@ -65,6 +65,10 @@ Route::get('/addappartement', [AppartementController::class,'create'])->middlewa
 
 Route::post('/appartement/register', [AppartementController::class,'addappartement'])->middleware(['auth'])->name('addappartement-succes');
 
+Route::get('/appartement-edit/{id}', [AppartementController::class,'edit'])->middleware(['auth'])->name('appartementedit');
+
+Route::post('/appartement-edit/single', [AppartementController::class,'update'])->middleware(['auth'])->name('appartementeditsuccess');
+
 
 
 require __DIR__.'/auth.php';
