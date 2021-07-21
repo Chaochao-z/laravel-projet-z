@@ -56,5 +56,13 @@ class VisiteController extends Controller
         );
 
     }
+
+    public function mesvisite(){
+        $id = Auth::user()->id;
+        $lesvisites = Visite::with('appartements')->where('id_user', $id)->get();
+
+        return view('mesvisite',['lesvisites' => $lesvisites]);
+
+    }
 }
 
