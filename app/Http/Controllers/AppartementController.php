@@ -18,16 +18,7 @@ class AppartementController extends Controller
     }
 
     public function addappartement(Request $request){
-        $appartements = new Appartement;
-        $appartements->type = $request->type;
-        $appartements->nb_piece = $request->nb_piece;
-        $appartements->localisation = $request->localisation;
-        $appartements->etage = $request->etage;
-        $appartements->prix = $request->prix;
-        $appartements->surface = $request->surface;
-        $appartements->description = $request->description;
-        $appartements->status = $request->status;
-        $appartements->save();
-        return redirect('appartement')->with('status', "Ajoute de l&#39;appartement");
+        
     }
+
 }
