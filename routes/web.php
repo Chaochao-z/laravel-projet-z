@@ -63,7 +63,7 @@ Route::get('/appartement',[AppartementController::class,'index'])->middleware(['
 
 Route::get('/addappartement', [AppartementController::class,'create'])->middleware(['auth'])->name('addappartement');
 
-Route::post('/appartement/register', [AppartementController::class,'addappartement'])->middleware(['auth']);
+Route::post('/appartement/register', [AppartementController::class,'addappartement'])->middleware(['auth'])->name('addappartement-succes');
 
 
 

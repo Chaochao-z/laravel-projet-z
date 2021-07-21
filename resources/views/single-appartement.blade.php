@@ -64,6 +64,7 @@
                     <p> {{ $appartement->description }}</p>
                     <div>
                         <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
+                        <p> {{ ($appartement->adresse )}} <p>
 
                         <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
             

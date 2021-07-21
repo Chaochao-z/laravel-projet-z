@@ -10,7 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1> Add your appartment </h1>
-                    <form action="/appartement/register" method="post">
+                    <form action="/appartement/register" method="post" enctype="multipart/form-data">
+                        @csrf
                         <label>Type</label>
                         <select name="type">
                             <option value="appartement">Appartement</option>
@@ -40,15 +41,19 @@
                             <option value="location">location</option>
                         </select></label>
                         <label>Prix</label>
-                        <input type="number" max="1000000000" name="prix">
+                        <input type="number" max="1000000000" name="prix" required>
                         <label>Surface m²</label>
-                        <input type="number" max="100000" name="surface">
+                        <input type="number" max="100000" name="surface" required>
                         <label>Adresse</label>
-                        <input type="text" name="adresse">
+                        <input type="text" name="adresse" required>
                         <label>localisation (Facultatif)</label>
-                        <input type="text" name="localisation">
+                        <input type="text" name="localisation" >
+
                         <label>Images</label>
                         <input type="file" name="images" accept="image/*" multiple>
+
+                        <label>Description
+                        <input type="text" name="description" required></label>
                         <input type="submit">
 
                     </form>
