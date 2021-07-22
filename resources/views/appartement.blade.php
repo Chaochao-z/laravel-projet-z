@@ -4,11 +4,28 @@
             welcome on the appartement !
         </h2>
     </x-slot>
-
+ 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <p>Filtrer</p>
+                    <form action="" method="get">
+                        <label>Type</label>
+                        <select name="type">
+                            <option value=1>Tout</option>
+                            <option value=2>Appartement</option>
+                            <option value=3>Maison</option>
+                        </select>
+                        <label>Status</label>
+                        <select name="status">
+                            <option value=1>Tout</option>
+                            <option value=2>Vente</option>
+                            <option value=3>Location</option>
+                        </select>
+                        <button type="submit">Submit</button>
+
+                    </form>
                     <table class="table table-hover">
                         <thead>
                             <tr>

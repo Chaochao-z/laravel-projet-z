@@ -17,7 +17,54 @@ use Illuminate\Http\Request;
 class VisiteController extends Controller
 {
     public function index(){
-        $appartements = DB::table('appartements')->where('type', 'appartement')->get();
+        $type =1;
+        $status = 1;
+        if(isset($_GET['type'])){
+            $type = $_GET['type'];
+            $status = $_GET['status'];
+        }
+        switch ($type){
+            case 1:
+                switch($status){
+                    case 1:
+                        $appartements = DB::table('appartements')->get();
+                        break;
+                    case 2:
+                        $appartements = DB::table('appartements')->where('status','vente')->get();
+                        break;
+                    case 3:
+                        $appartements = DB::table('appartements')->where('status','location')->get();
+                        break;
+                }
+                break;
+            case 2:
+                switch($status){
+                    case 1:
+                        $appartements = DB::table('appartements')->where('type', 'appartement')->get();
+                        break;
+                    case 2:
+                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('status','vente')->get();
+                        break;
+                    case 3:
+                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('status','location')->get();
+                        break;
+                }
+                break;
+            case 3:
+                switch($status){
+                    case 1:
+                        $appartements = DB::table('appartements')->where('type', 'maison')->get();
+                        break;
+                    case 2:
+                        $appartements = DB::table('appartements')->where('type', 'maison')->where('status','vente')->get();
+                        break;
+                    case 3:
+                        $appartements = DB::table('appartements')->where('type', 'maison')->where('status','location')->get();
+                        break;  
+                }
+                break;
+        }
+
         return(
             view('appartement',['appartements' => $appartements])
         );
