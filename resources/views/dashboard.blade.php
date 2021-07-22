@@ -10,6 +10,75 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     Welcome {{ Auth::user()->name }}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <h3>Mes Appartement</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                   
+                    @if (isset($mesappartements))
+                        @foreach ($mesappartements as $appartement)
+                            <div style="margin-bottom: 100px;background-color:blue;">
+                                <div class="centerboridehi">
+                                    <h1 style="text-align:center;margin-bottom:40px;">
+                                        @if($appartement->type =="appartement")
+                                            Appartement
+                                        @else
+                                            Maison
+                                        @endif
+                                        Lot N° {{ $appartement->id }} </h1>
+                                </div>
+                            </div>
+                            <div class = "tableau-info">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <!-- <th scope="col">ID</th> -->
+                                            <th scope="col">Type</th>
+                                            <th scope ="col">Pièce</th>
+                                            <th scope ="col">Prix</th>
+                                            <th scope ="col">Surface</th>
+                                            <th scope ="col">Date publication</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>{{ $appartement->type }}</td>
+                                        <td>T{{ $appartement->nb_piece }}</td>
+                                        <td>{{ $appartement->prix }}€</td>
+                                        <td>{{ $appartement->surface }}m²</td>
+                                        <td>{{ $appartement->date_publication }}</td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                                <h1 style="text-align:center;margin-bottom:20px;"> Description </h1>
+                                <p> {{ $appartement->description }}</p>
+                                <div>
+                                    <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
+                                    <p> {{ ($appartement->adresse )}} <p>
+
+                                    <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
+                        
+                                </div>
+                        @endforeach   
+                    @else
+                        <h3>Vous avez pas encore d'appartement ou maison</h3>     
+                    @endif 
                 </div>
             </div>
         </div>
