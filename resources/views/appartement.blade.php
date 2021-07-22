@@ -13,6 +13,7 @@
                         <thead>
                             <tr>
                                 <!-- <th scope="col">ID</th> -->
+                                <th scope="col">Réference</th>
                                 <th scope="col">Type</th>
                                 <th scope ="col" > nb_piece</th>
                                 <th scope ="col">Prix</th>
@@ -26,6 +27,7 @@
                         @foreach ($appartements as $appartement)
                         <tr>
                             <!-- <td>    {{ $appartement->id }} </td> -->
+                            <td>    {{ $appartement->id }}</td>
                             <td>    {{ $appartement->type }}</td>
                             <td>    {{ $appartement->nb_piece }}</td>
                             <td>    {{ $appartement->prix }}</td>
