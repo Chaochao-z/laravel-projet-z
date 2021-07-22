@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Appartement extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'id_appartement';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'type',
         'nb_piece',
