@@ -59,8 +59,12 @@ class VisiteController extends Controller
 
     public function mesvisite(){
         $id = Auth::user()->id;
-        $lesvisites = Visite::with('appartements')->where('id_user', $id)->get();
-
+        // $lesvisites = Visite::with('appartements')->where('id_user', $id)->get();
+        $lesvisites = DB::table('visites')
+                        ->join('appartements','id_appartement','=','appartements.id')
+                        ->select('visites.*','appartements.adresse')
+                        ->get();
+        
         return view('mesvisite',['lesvisites' => $lesvisites]);
 
     }
