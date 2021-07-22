@@ -19,24 +19,25 @@
                         @endif
                         Lot N° {{ $appartement->id }} </h1>
                     </div>
-                    
-                    <div class="slideshow-container">
-                        @foreach ($images as $image)
-                            <div class="mySlides fade">
-                               <img src="{{ asset($image->image_url) }}" alt="job image" style="width:100%; height:500px;">
-                            </div>
-                        @endforeach
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </div>
-                    
-                    <br>
+                    @if (!empty($images[0]))
+                        <div class="slideshow-container">
+                            @foreach ($images as $image)
+                                <div class="mySlides fade">
+                                <img src="{{ asset($image->image_url) }}" alt="job image" style="width:100%; height:500px;">
+                                </div>
+                            @endforeach
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                   
+                        <br>
 
-                    <!-- The dots/circles -->
-                    <div style="text-align:center">
-                    @foreach ($images as $key => $image)
-                        <span class="dot" onclick="currentSlide({{ $loop->iteration }})"></span>
-                    @endforeach
+                        <!-- The dots/circles -->
+                        <div style="text-align:center">
+                        @foreach ($images as $key => $image)
+                            <span class="dot" onclick="currentSlide({{ $loop->iteration }})"></span>
+                        @endforeach
+                    @endif    
                     <div class = "tableau-info">
                         <table class="table table-hover">
                             <thead>
