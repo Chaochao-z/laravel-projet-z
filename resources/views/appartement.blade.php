@@ -48,7 +48,7 @@
                             <!-- <td>    {{ $appartement->id }} </td> -->
                             <td>    {{ $appartement->id }}</td>
                             <td>    {{ $appartement->type }}</td>
-                            <td>    {{ $appartement->nb_piece }}</td>
+                            <td>    T{{ $appartement->nb_piece }}</td>
                             <td>    {{ $appartement->prix }}</td>
                             <td>    {{ $appartement->surface }}</td>
                             <td>    {{ $appartement->status }}</td>

@@ -107,4 +107,14 @@ class AppartementController extends Controller
         return view('validation_bien',['appartements' => $appartements]);
     }
 
+    public function validation(Request $request){
+        $id_appartement = $request->id;
+        $appartement = Appartement::find($id_appartement);
+        $appartement->isValide = 1 ;
+        $appartement->save();
+        header("Location: /admin/validation-biens" );
+        exit;
+
+    }
+
 }

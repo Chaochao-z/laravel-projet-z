@@ -75,6 +75,11 @@ Route::get('/admin/validation-visite', [VisiteController::class,'validation_list
 
 Route::get('/admin/validation-visite/{id}', [VisiteController::class,'validation'])->middleware(['auth'])->name('valider');
 
+Route::get('/admin/validation-biens', [AppartementController::class,'validation_liste'])->middleware(['auth'])->name('validation_bien');
+
+Route::get('/admin/validation-bien/{id}', [AppartementController::class,'validation'])->middleware(['auth'])->name('valider_bien');
+
+
 require __DIR__.'/auth.php';
  
 
