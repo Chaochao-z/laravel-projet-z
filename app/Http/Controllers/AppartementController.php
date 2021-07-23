@@ -5,7 +5,7 @@ use App\Models\Appartement;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class AppartementController extends Controller
 {
@@ -89,12 +89,22 @@ class AppartementController extends Controller
         if($appartement->status == "location"){
             $appartement->status = "louer";
         }
-        else{
+        if($appartement->status == "vente"){
             $appartement->status = "vendu";
         }
         $appartement->id_user = Auth::user()->id;
         $appartement->save();
         return view('demande_envoyer',['appartement' => $appartement]);
+    }
+
+    public function validation_liste(){
+        $appartements = DB::table('appartements')
+                            ->join('users','id_user','=','users.id')
+                            ->select('appartements.*','users.name')
+                            ->where('id_user',!NULL)
+                            ->where('isValide',0)
+                            ->get();
+        return view('validation_bien',['appartements' => $appartements]);
     }
 
 }
