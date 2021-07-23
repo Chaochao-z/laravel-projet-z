@@ -121,7 +121,7 @@ class VisiteController extends Controller
                             ->join('users','id_user','=','users.id')
                             ->join('appartements','id_appartement','=','appartements.id')
                             ->select('visites.*','users.name','appartements.adresse')
-                            ->where('isValide',0)
+                            ->where('visites.isValide',0)
                             ->get();
         return view('validation_visite',['lesvisites' => $lesvisites]);
     }
