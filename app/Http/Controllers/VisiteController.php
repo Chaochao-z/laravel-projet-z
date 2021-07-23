@@ -115,5 +115,25 @@ class VisiteController extends Controller
         return view('mesvisite',['lesvisites' => $lesvisites]);
 
     }
+
+    public function validation_liste(){
+        $lesvisites = DB::table('visites')
+                            ->join('users','id_user','=','users.id')
+                            ->join('appartements','id_appartement','=','appartements.id')
+                            ->select('visites.*','users.name','appartements.adresse')
+                            ->where('isValide',0)
+                            ->get();
+        return view('validation_visite',['lesvisites' => $lesvisites]);
+    }
+
+    public function validation(Request $request){
+        $id_visite = $request->id;
+        $visite = Visite::find($id_visite);
+        $visite->isValide = 1 ;
+        $visite->save();
+        header("Location: /admin/validation-visite" );
+        exit;
+
+    }
 }
 

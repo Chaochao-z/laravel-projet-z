@@ -69,7 +69,9 @@ Route::get('/appartement-edit/{id}', [AppartementController::class,'edit'])->mid
 
 Route::post('/appartement-edit/single', [AppartementController::class,'update'])->middleware(['auth'])->name('appartementeditsuccess');
 
+Route::get('/admin/validation-visite', [VisiteController::class,'validation_liste'])->middleware(['auth'])->name('validation');
 
+Route::get('/admin/validation-visite/{id}', [VisiteController::class,'validation'])->middleware(['auth'])->name('valider');
 
 require __DIR__.'/auth.php';
  
