@@ -32,7 +32,7 @@
                    
                     @if (isset($mesappartements))
                         @foreach ($mesappartements as $appartement)
-                            <div style="margin-bottom: 100px;background-color:blue;">
+                            <div style="margin-bottom: 100px;">
                                 <div class="centerboridehi">
                                     <h1 style="text-align:center;margin-bottom:40px;">
                                         @if($appartement->type =="appartement")
@@ -43,38 +43,42 @@
                                         Lot N° {{ $appartement->id }} </h1>
                                 </div>
                             </div>
-                            <div class = "tableau-info">
-                                <table class="table table-hover">
-                                    <thead>
+                            @if ($appartement->isValide == 1)
+                                <div class = "tableau-info">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th scope="col">ID</th> -->
+                                                <th scope="col">Type</th>
+                                                <th scope ="col">Pièce</th>
+                                                <th scope ="col">Prix</th>
+                                                <th scope ="col">Surface</th>
+                                                <th scope ="col">Date publication</th>
+                                            </tr>
+                                        </thead>
                                         <tr>
-                                            <!-- <th scope="col">ID</th> -->
-                                            <th scope="col">Type</th>
-                                            <th scope ="col">Pièce</th>
-                                            <th scope ="col">Prix</th>
-                                            <th scope ="col">Surface</th>
-                                            <th scope ="col">Date publication</th>
+                                            <td>{{ $appartement->type }}</td>
+                                            <td>T{{ $appartement->nb_piece }}</td>
+                                            <td>{{ $appartement->prix }}€</td>
+                                            <td>{{ $appartement->surface }}m²</td>
+                                            <td>{{ $appartement->date_publication }}</td>
                                         </tr>
-                                    </thead>
-                                    <tr>
-                                        <td>{{ $appartement->type }}</td>
-                                        <td>T{{ $appartement->nb_piece }}</td>
-                                        <td>{{ $appartement->prix }}€</td>
-                                        <td>{{ $appartement->surface }}m²</td>
-                                        <td>{{ $appartement->date_publication }}</td>
-                                    </tr>
-                                </table>
+                                    </table>
 
 
-                            </div>
-                                <h1 style="text-align:center;margin-bottom:20px;"> Description </h1>
-                                <p> {{ $appartement->description }}</p>
-                                <div>
-                                    <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
-                                    <p> {{ ($appartement->adresse )}} <p>
-
-                                    <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
-                        
                                 </div>
+                                    <h1 style="text-align:center;margin-bottom:20px;"> Description </h1>
+                                    <p> {{ $appartement->description }}</p>
+                                    <div>
+                                        <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
+                                        <p> {{ ($appartement->adresse )}} <p>
+
+                                        <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
+                            
+                                    </div>
+                            @else
+                                <h1>Appartement en attente de validation par l'administrateur</h1>
+                            @endif
                         @endforeach   
                     @else
                         <h3>Vous avez pas encore d'appartement ou maison</h3>     
