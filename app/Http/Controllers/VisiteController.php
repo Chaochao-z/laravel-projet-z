@@ -27,7 +27,7 @@ class VisiteController extends Controller
             case 1:
                 switch($status){
                     case 1:
-                        $appartements = DB::table('appartements')->get();
+                        $appartements = DB::table('appartements')->where('id_user',NULL)->get();
                         break;
                     case 2:
                         $appartements = DB::table('appartements')->where('status','vente')->get();
@@ -40,7 +40,7 @@ class VisiteController extends Controller
             case 2:
                 switch($status){
                     case 1:
-                        $appartements = DB::table('appartements')->where('type', 'appartement')->get();
+                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('id_user',NULL)->get();
                         break;
                     case 2:
                         $appartements = DB::table('appartements')->where('type', 'appartement')->where('status','vente')->get();
@@ -53,7 +53,7 @@ class VisiteController extends Controller
             case 3:
                 switch($status){
                     case 1:
-                        $appartements = DB::table('appartements')->where('type', 'maison')->get();
+                        $appartements = DB::table('appartements')->where('type', 'maison')->where('id_user',NULL)->get();
                         break;
                     case 2:
                         $appartements = DB::table('appartements')->where('type', 'maison')->where('status','vente')->get();

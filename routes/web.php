@@ -61,6 +61,8 @@ Route::get('/mesvisite', [VisiteController::class,'mesvisite'])->middleware(['au
 
 Route::get('/appartement',[AppartementController::class,'index'])->middleware(['auth'])->name('appartement');
 
+Route::get('/appartement/demande/{id}',[AppartementController::class,'demande'])->middleware(['auth'])->name('demande');
+
 Route::get('/addappartement', [AppartementController::class,'create'])->middleware(['auth'])->name('addappartement');
 
 Route::post('/appartement/register', [AppartementController::class,'addappartement'])->middleware(['auth'])->name('addappartement-succes');

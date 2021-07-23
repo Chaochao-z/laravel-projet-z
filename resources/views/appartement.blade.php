@@ -37,8 +37,10 @@
                                 <th scope ="col">Surface</th>
                                 <th scope ="col">Status</th>
                                 <th scope ="col">Date publication</th>
+                                <th scope ="col">Demande</th>
                                 <th scope ="col" >Action</th>
                                 <th scope ="col" >Admin</th>
+
                             </tr>
                         </thead>    
                         @foreach ($appartements as $appartement)
@@ -51,6 +53,13 @@
                             <td>    {{ $appartement->surface }}</td>
                             <td>    {{ $appartement->status }}</td>
                             <td>    {{ $appartement->date_publication }}</td>
+                            <td><a href="appartement/demande/{{ $appartement->id }}"> 
+                                @if ($appartement->status == "location")
+                                    Louer
+                                @else
+                                    Acheter
+                                @endif
+                            </a></td>
                             <td><a href="/visite/{{ $appartement->id}}">Regarder</a></td>
                             <td><a href="/appartement-edit/{{ $appartement->id}}">Edit</a></td>
                         </tr>

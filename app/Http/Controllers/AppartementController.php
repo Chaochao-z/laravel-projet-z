@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Appartement;
 use App\Models\Image;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
+
 
 class AppartementController extends Controller
 {
@@ -81,6 +82,19 @@ class AppartementController extends Controller
        
         $appartement->save();
         return view('single-appartement-edit-success',['id' => $id]);
+    }
+
+    public function demande(Request $request){
+        $appartement = Appartement::find($request->id);
+        if($appartement->status == "location"){
+            $appartement->status = "louer";
+        }
+        else{
+            $appartement->status = "vendu";
+        }
+        $appartement->id_user = Auth::user()->id;
+        $appartement->save();
+        return view('demande_envoyer',['appartement' => $appartement]);
     }
 
 }
