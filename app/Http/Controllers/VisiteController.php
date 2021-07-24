@@ -92,10 +92,12 @@ class VisiteController extends Controller
         $visite = $request->date_rdv;
         $id_appartement = $request->id_appartement;
         $id = Auth::user()->id;
+        $isValide = 0;
         $rdv = Visite::create([
             'id_user' => $id,
             'id_appartement' => $id_appartement,
             'date_visite' => $visite,
+            'isValide' => $isValide,
         ]);
         $rdv->save();
         return (

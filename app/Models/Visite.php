@@ -13,6 +13,7 @@ class Visite extends Model
         'id_user',
         'id_appartement',
         'date_visite',
+        'isValide',
     ];
 
     public function appartements(){

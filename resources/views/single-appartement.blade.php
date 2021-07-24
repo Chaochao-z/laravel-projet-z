@@ -61,17 +61,18 @@
 
 
                     </div>
-                    <h1 style="text-align:center;margin-bottom:20px;"> Description </h1>
-                    <p> {{ $appartement->description }}</p>
-                    <div>
-                        <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
-                        <p> {{ ($appartement->adresse )}} <p>
+                    <center>
+                        <h1 style="text-align:center;margin-bottom:20px;"> Description </h1>
+                        <p> {{ $appartement->description }}</p>
+                        <div>
+                            <h1 style="text-align:center;margin-bottom:20px;">Localisation</h1>
+                            <p> {{ ($appartement->adresse )}} <p>
 
-                        <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
-            
-                    </div>
-                    <button type="button" class="bouton-visite" name="bouton-visite"><a href="/visite/{{ $appartement->id}}/rdv">Choisir Date de visite</a></button>
-
+                            <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
+                
+                        </div>
+                        <button type="button" class="bouton-visite" name="bouton-visite"><a href="/visite/{{ $appartement->id}}/rdv">Choisir Date de visite</a></button>
+                    </center>
                 </div>
                     
             </div>
