@@ -19,19 +19,18 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <h3>Mes Appartement</h3>
+                    <h1 style="text-align:center;">Mes Appartement</h1>
                     
                 </div>
             </div>
         </div>
     </div>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                   
-                    @if (isset($mesappartements))
-                        @foreach ($mesappartements as $appartement)
+    @if (isset($mesappartements))
+        @foreach ($mesappartements as $appartement)
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 bg-white border-b border-gray-200">
                             <div style="margin-bottom: 100px;">
                                 <div class="centerboridehi">
                                     <h1 style="text-align:center;margin-bottom:40px;">
@@ -67,6 +66,7 @@
 
 
                                 </div>
+                                <center>
                                     <h1 style="text-align:center;margin-bottom:20px;"> Description </h1>
                                     <p> {{ $appartement->description }}</p>
                                     <div>
@@ -76,15 +76,16 @@
                                         <iframe src="{{ asset($appartement->localisation) }}" width="600" height="450" style="border:0;margin:auto;" allowfullscreen="" loading="lazy"></iframe>
                             
                                     </div>
+                                </center>
                             @else
                                 <h1>Appartement en attente de validation par l'administrateur</h1>
-                            @endif
-                        @endforeach   
-                    @else
-                        <h3>Vous avez pas encore d'appartement ou maison</h3>     
-                    @endif 
+                            @endif   
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        @endforeach
+    @else
+        <h3>Vous avez pas encore d'appartement ou maison</h3>     
+    @endif 
 </x-app-layout>
