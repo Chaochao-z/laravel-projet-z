@@ -127,4 +127,24 @@ class AppartementController extends Controller
 
     }
 
+    public function corbeille(Request $request){
+        $id_appartement = $request->id;
+        $appartement = Appartement::find($id_appartement);
+        $appartement->isDeleted = 1;
+        $appartement->save();
+        header("Location: /visite" );
+        exit;
+    }
+
+    public function delete(Request $request){
+        $id_appartement = $request->id;
+        $visites = DB::table('visites')->where('id_appartement',$id_appartement)->delete();
+
+        $appartement = DB::table('appartements')
+                        ->where('id',$id_appartement)
+                        ->delete();
+        header("Location: /visite-corbeille" );
+        exit;
+    }
+
 }

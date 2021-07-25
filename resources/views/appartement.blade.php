@@ -72,6 +72,9 @@
                         </tr>
                         @endforeach
                     </table>
+                    @if (Auth::user()->Role == 0)
+                        <button><a href="/visite-corbeille">Corbeille</a></button>
+                    @endif
                 </div>
             </div>
         </div>

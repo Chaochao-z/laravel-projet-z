@@ -138,5 +138,21 @@ class VisiteController extends Controller
         exit;
 
     }
+
+    public function corbeille(){
+        $appartements = DB::table('appartements')
+                            ->where('isDeleted',1)
+                            ->get();
+        return view('appartement_corbeille',['appartements' => $appartements]);
+    }
+
+    public function restaure(Request $request){
+        $id_appartement = $request->id;
+        $appartement = Appartement::find($id_appartement);
+        $appartement->isDeleted = 0;
+        $appartement->save();
+        header("Location: /visite-corbeille" );
+        exit;
+    }
 }
 
