@@ -50,7 +50,7 @@ Route::get('/hello/{username?}', function ($username = NULL) {
 })->middleware(['auth']);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth'])->name('dashboard');
