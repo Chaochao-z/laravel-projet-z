@@ -63,21 +63,21 @@ Route::get('/appartement',[AppartementController::class,'index'])->middleware(['
 
 Route::get('/appartement/demande/{id}',[AppartementController::class,'demande'])->middleware(['auth'])->name('demande');
 
-Route::get('/addappartement', [AppartementController::class,'create'])->middleware(['auth'])->name('addappartement');
+Route::get('/addappartement', [AppartementController::class,'create'])->middleware(['admin'])->name('addappartement');
 
-Route::post('/appartement/register', [AppartementController::class,'addappartement'])->middleware(['auth'])->name('addappartement-succes');
+Route::post('/appartement/register', [AppartementController::class,'addappartement'])->middleware(['admin'])->name('addappartement-succes');
 
-Route::get('/appartement-edit/{id}', [AppartementController::class,'edit'])->middleware(['auth'])->name('appartementedit');
+Route::get('/appartement-edit/{id}', [AppartementController::class,'edit'])->middleware(['admin'])->name('appartementedit');
 
-Route::post('/appartement-edit/single', [AppartementController::class,'update'])->middleware(['auth'])->name('appartementeditsuccess');
+Route::post('/appartement-edit/single', [AppartementController::class,'update'])->middleware(['admin'])->name('appartementeditsuccess');
 
-Route::get('/admin/validation-visite', [VisiteController::class,'validation_liste'])->middleware(['auth'])->name('validation');
+Route::get('/admin/validation-visite', [VisiteController::class,'validation_liste'])->middleware(['admin'])->name('validation');
 
-Route::get('/admin/validation-visite/{id}', [VisiteController::class,'validation'])->middleware(['auth'])->name('valider');
+Route::get('/admin/validation-visite/{id}', [VisiteController::class,'validation'])->middleware(['admin'])->name('valider');
 
-Route::get('/admin/validation-biens', [AppartementController::class,'validation_liste'])->middleware(['auth'])->name('validation_bien');
+Route::get('/admin/validation-biens', [AppartementController::class,'validation_liste'])->middleware(['admin'])->name('validation_bien');
 
-Route::get('/admin/validation-bien/{id}', [AppartementController::class,'validation'])->middleware(['auth'])->name('valider_bien');
+Route::get('/admin/validation-bien/{id}', [AppartementController::class,'validation'])->middleware(['admin'])->name('valider_bien');
 
 
 require __DIR__.'/auth.php';

@@ -39,7 +39,9 @@
                                 <th scope ="col">Date publication</th>
                                 <th scope ="col">Demande</th>
                                 <th scope ="col" >Action</th>
-                                <th scope ="col" >Admin</th>
+                                @if (Auth::user()->Role == 0)
+                                    <th scope ="col" >Admin</th>
+                                @endif
 
                             </tr>
                         </thead>    
@@ -61,7 +63,10 @@
                                 @endif
                             </a></td>
                             <td><a href="/visite/{{ $appartement->id}}">Regarder</a></td>
-                            <td><a href="/appartement-edit/{{ $appartement->id}}">Edit</a></td>
+                            @if (Auth::user()->Role == 0)
+                                <td><a href="/appartement-edit/{{ $appartement->id}}">Edit</a></td>
+                            @endif
+                            
                         </tr>
                         @endforeach
                     </table>
