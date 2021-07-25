@@ -57,7 +57,13 @@ Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['aut
 
 Route::get('/visite', [VisiteController::class,'index'])->middleware(['auth'])->name('visite');
 
+Route::get('/visite/corbeille', [VisiteController::class,'corbeille'])->middleware(['admin'])->name('');
+
+Route::get('/appartment/corbeille/{id}', [AppartementController::class,'corbeille'])->middleware(['admin'])->name('corbeille');
+
 Route::get('/mesvisite', [VisiteController::class,'mesvisite'])->middleware(['auth'])->name('mesvisite');
+
+Route::get('/mesdemande', [AppartementController::class,'mesdemande'])->middleware(['auth'])->name('mesdemande');
 
 Route::get('/appartement',[AppartementController::class,'index'])->middleware(['auth'])->name('appartement');
 

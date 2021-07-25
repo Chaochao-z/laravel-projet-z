@@ -26,6 +26,11 @@
                         {{ __('Mes Visite') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('mesdemande')" :active="request()->routeIs('mesdemande')">
+                        {{ __('Mes Demande') }}
+                    </x-nav-link>
+                </div>
                 @if (Auth::user()->Role == 0)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('addappartement')" :active="request()->routeIs('addappartement')">

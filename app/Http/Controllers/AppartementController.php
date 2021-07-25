@@ -24,6 +24,16 @@ class AppartementController extends Controller
         move_uploaded_file($files['images']['tmp_name'], "./images/$basename");
     }
 
+    public function mesdemande(){
+        $id = Auth::user()->id;
+        $mesdemandes = DB::table('appartements')
+                        ->where('id_user',$id)
+                        ->get();
+        
+        return view('mesdemande',['mesdemandes' => $mesdemandes]);
+
+    }
+
     public function addappartement(Request $request){
         
         $appartement = Appartement::create([

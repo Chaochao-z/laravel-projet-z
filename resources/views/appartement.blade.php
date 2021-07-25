@@ -41,6 +41,7 @@
                                 <th scope ="col" >Action</th>
                                 @if (Auth::user()->Role == 0)
                                     <th scope ="col" >Admin</th>
+                                    <th scope ="col" >Mettre Corbeille</th>
                                 @endif
 
                             </tr>
@@ -65,6 +66,7 @@
                             <td><a href="/visite/{{ $appartement->id}}">Regarder</a></td>
                             @if (Auth::user()->Role == 0)
                                 <td><a href="/appartement-edit/{{ $appartement->id}}">Edit</a></td>
+                                <td><a href="/appartement/corbeille/{{ $appartement->id}}">Retirer</a></td>
                             @endif
                             
                         </tr>

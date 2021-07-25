@@ -27,39 +27,39 @@ class VisiteController extends Controller
             case 1:
                 switch($status){
                     case 1:
-                        $appartements = DB::table('appartements')->where('id_user',NULL)->get();
+                        $appartements = DB::table('appartements')->where('id_user',NULL)->where('isDeleted',0)->get();
                         break;
                     case 2:
-                        $appartements = DB::table('appartements')->where('status','vente')->get();
+                        $appartements = DB::table('appartements')->where('status','vente')->where('isDeleted',0)->get();
                         break;
                     case 3:
-                        $appartements = DB::table('appartements')->where('status','location')->get();
+                        $appartements = DB::table('appartements')->where('status','location')->where('isDeleted',0)->get();
                         break;
                 }
                 break;
             case 2:
                 switch($status){
                     case 1:
-                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('id_user',NULL)->get();
+                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('id_user',NULL)->where('isDeleted',0)->get();
                         break;
                     case 2:
-                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('status','vente')->get();
+                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('status','vente')->where('isDeleted',0)->get();
                         break;
                     case 3:
-                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('status','location')->get();
+                        $appartements = DB::table('appartements')->where('type', 'appartement')->where('status','location')->where('isDeleted',0)->get();
                         break;
                 }
                 break;
             case 3:
                 switch($status){
                     case 1:
-                        $appartements = DB::table('appartements')->where('type', 'maison')->where('id_user',NULL)->get();
+                        $appartements = DB::table('appartements')->where('type', 'maison')->where('id_user',NULL)->where('isDeleted',0)->get();
                         break;
                     case 2:
-                        $appartements = DB::table('appartements')->where('type', 'maison')->where('status','vente')->get();
+                        $appartements = DB::table('appartements')->where('type', 'maison')->where('status','vente')->where('isDeleted',0)->get();
                         break;
                     case 3:
-                        $appartements = DB::table('appartements')->where('type', 'maison')->where('status','location')->get();
+                        $appartements = DB::table('appartements')->where('type', 'maison')->where('status','location')->where('isDeleted',0)->get();
                         break;  
                 }
                 break;
