@@ -19,5 +19,7 @@ class Appartement extends Model
         'description',
         'status',
         'adresse',
+        'isValide',
+        'isDeleted',
     ];
 }

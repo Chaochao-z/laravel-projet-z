@@ -47,6 +47,8 @@ class AppartementController extends Controller
             'description' =>$request->description,
             'status' => $request->status,
             'adresse' => $request->adresse,
+            'isValide' => 0,
+            'isDeleted' => 0,
         ]);
         $appartement->save();
         $appartement = Appartement::latest('id')->first();
@@ -111,7 +113,7 @@ class AppartementController extends Controller
         $appartements = DB::table('appartements')
                             ->join('users','id_user','=','users.id')
                             ->select('appartements.*','users.name')
-                            ->where('id_user',!NULL)
+                            ->where('id_user', '<>', '')
                             ->where('isValide',0)
                             ->get();
         return view('validation_bien',['appartements' => $appartements]);
@@ -138,6 +140,7 @@ class AppartementController extends Controller
 
     public function delete(Request $request){
         $id_appartement = $request->id;
+        $image = DB::table('images')->where('id_appartement',$id_appartement)->delete();
         $visites = DB::table('visites')->where('id_appartement',$id_appartement)->delete();
 
         $appartement = DB::table('appartements')

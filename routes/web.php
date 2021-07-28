@@ -37,9 +37,9 @@ Route::get('/visite/{id}/rdv', [VisiteController::class,'rdv'])->middleware(['au
 
 Route::post('visite/rdv-enregistrer', [VisiteController::class,'rdv_enregistrer'])->middleware(['auth']);
 
-Route::get('/test', function () {
+/*Route::get('/test', function () {
     echo "test";
-})->middleware(['auth']);
+})->middleware(['auth']);*/
 
 Route::get('/plop/{param}',function($param){
     echo '<b>plop : '.$param.'</b>';
